@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+
 export const FilterWrapper = styled.div`
   max-width:232px;
   width:100%;
+  height:max-content;
   background-color:#fff;
   display:flex;
   flex-direction:column;

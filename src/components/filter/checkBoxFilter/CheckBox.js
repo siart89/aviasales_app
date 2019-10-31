@@ -13,6 +13,9 @@ const CheckBox = () => {
     { title: '2 пересадки', value: 'two', isChecked: false },
     { title: '3 пересадки', value: 'three', isChecked: false },
   ]);
+
+  // WHAT TYPE OF FILTER IS ACTIVE
+
   const handleOnChange = (e) => {
     const forCheckingArr = transferFilters.map((item) => {
       if (item.value === e.target.value) {

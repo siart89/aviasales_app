@@ -2,9 +2,9 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
 import store from './components/store/store';
-import CheckBox from './components/filter/checkBoxFilter/CheckBox';
 import { ContextProvider } from './components/dbContext';
 import GetData from './components/dbContext/getData';
+import MainPage from './MainPage';
 
 
 const GlobalStyles = createGlobalStyle`
@@ -28,7 +28,7 @@ function App() {
       <ContextProvider>
         <div className="App">
           <GetData />
-          <CheckBox />
+          <MainPage />
         </div>
       </ContextProvider>
 
