@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import searchReducer from './searchReducer';
+import filterReducer from './filterReducer';
 
 const AllReducers = combineReducers({
-  tickets: searchReducer,
+  change: filterReducer,
 });
 
 export default AllReducers;

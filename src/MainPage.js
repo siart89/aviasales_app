@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
-import Ticket from './components/ticket/Ticket';
 import { DbContext } from './components/dbContext';
-import isTicketsLoaded from './actions/isTicketsLoaded';
 import CheckBox from './components/filter/checkBoxFilter/CheckBox';
 import Logo from './Logo.svg';
 import ButtonFilter from './components/filter/buttonFilter/ButtonFilter';
@@ -12,11 +10,11 @@ import {
   TicketsWrapper,
 } from './Styles';
 import Loading from './components/support/Loading';
+import TicketsList from './components/ticket/TicketsList';
 
 const MainPage = () => {
   const { data } = useContext(DbContext);
   // eslint-disable-next-line global-require
-  const uniqid = require('uniqid');
   return (
     <MainWrapper>
       <MainContetnBox>
@@ -24,7 +22,7 @@ const MainPage = () => {
         <CheckBox />
         <TicketsWrapper>
           <ButtonFilter />
-          {data ? isTicketsLoaded(data, uniqid, Ticket)
+          {data ? <TicketsList />
             : <Loading />}
         </TicketsWrapper>
       </MainContetnBox>

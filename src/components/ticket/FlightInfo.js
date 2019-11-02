@@ -1,64 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TicketElement from './TicketElement';
+import calcTimeFromTo from '../../actions/calcTimeFromTo';
+import calcFlightTime from '../../actions/calcFlightTime';
+import calcStops from '../../actions/calcStops';
 
 
 const FlightInfo = ({ info }) => {
-  // CALCULATE DEPARTURE TIME AND ARRIVAL TIME
-  const calcTimeFromTo = () => {
-    const depart = new Date(info.date);
-    const arrivel = new Date(depart.getTime() + info.duration * 60 * 1000);
-    // TRANSFORM TIME TO "hh:mm" FORMAT
-    const formatingTime = (time) => {
-      if (time < 10) return `0${time}`;
-      return time;
-    };
-
-    const departH = formatingTime(depart.getHours());
-    const departM = formatingTime(depart.getMinutes());
-    const arrivelH = formatingTime(arrivel.getHours());
-    const arrivelM = formatingTime(arrivel.getMinutes());
-
-    return `${departH}:${departM} - ${arrivelH}:${arrivelM}`;
-  };
-
   const setDestination = () => (
     `${info.origin} - ${info.destination}`
   );
-
-  const calcFlightTime = () => {
-    let hours = Math.floor(info.duration / 60);
-    let minutes = info.duration - hours * 60;
-    if (hours < 10) hours = `0${hours}`;
-    if (minutes < 10) minutes = `0${minutes}`;
-    return `${hours}ч ${minutes}м`;
-  };
-
-  const calcStops = () => {
-    let text = 'Пересадка';
-    if (info.stops.length === 0) {
-      return 'Без пересадок';
-    }
-    if (info.stops.length >= 2 && info.stops.length <= 4) {
-      text = 'Пересадки';
-    }
-    if (info.stops.length >= 5 && info.stops.length <= 20) {
-      text = 'Пересадок';
-    }
-    return `${info.stops.length} ${text}`;
-  };
   return (
     <>
       <TicketElement
         titleText={setDestination()}
-        infoText={calcTimeFromTo()}
+        infoText={calcTimeFromTo(info)}
       />
       <TicketElement
         titleText="В пути"
-        infoText={calcFlightTime()}
+        infoText={calcFlightTime(info)}
       />
       <TicketElement
-        titleText={calcStops()}
+        titleText={calcStops(info)}
         infoText={info.stops.join(',')}
       />
     </>

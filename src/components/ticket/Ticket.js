@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TicketWrapper, Cost, Img } from './styles';
 import FlightInfo from './FlightInfo';
+import formatCost from '../../actions/formatCost';
 
 
 const Ticket = ({ infoArr }) => {
   const url = `//pics.avs.io/99/36/${infoArr.carrier}.png`;
-
-  const formatCost = (price) => {
-    const cost = [...price.toString()];
-    cost.splice((cost.length - 3), 0, ' ');
-    return `${cost.join('')} P`;
-  };
 
   return (
     <>

@@ -7,18 +7,18 @@ import RadioElement from './RadioElement';
 
 const CheckBox = () => {
   const [transferFilters, setTransferFilters] = useState([
-    { title: 'Все', value: 'all', isChecked: true },
-    { title: 'Без пересадок', value: 'none', isChecked: false },
-    { title: '1 пересадка', value: 'one', isChecked: false },
-    { title: '2 пересадки', value: 'two', isChecked: false },
-    { title: '3 пересадки', value: 'three', isChecked: false },
+    { title: 'Все', value: 999, isChecked: true },
+    { title: 'Без пересадок', value: 0, isChecked: false },
+    { title: '1 пересадка', value: 1, isChecked: false },
+    { title: '2 пересадки', value: 2, isChecked: false },
+    { title: '3 пересадки', value: 3, isChecked: false },
   ]);
 
   // WHAT TYPE OF FILTER IS ACTIVE
 
   const handleOnChange = (e) => {
     const forCheckingArr = transferFilters.map((item) => {
-      if (item.value === e.target.value) {
+      if (item.value === +e.target.value) {
         return { ...item, isChecked: true };
       } return { ...item, isChecked: false };
     });
