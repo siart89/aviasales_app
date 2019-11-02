@@ -4,9 +4,11 @@ import TicketElement from './TicketElement';
 
 
 const FlightInfo = ({ info }) => {
+  // CALCULATE DEPARTURE TIME AND ARRIVAL TIME
   const calcTimeFromTo = () => {
     const depart = new Date(info.date);
     const arrivel = new Date(depart.getTime() + info.duration * 60 * 1000);
+    // TRANSFORM TIME TO "hh:mm" FORMAT
     const formatingTime = (time) => {
       if (time < 10) return `0${time}`;
       return time;

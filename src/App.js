@@ -6,7 +6,6 @@ import { ContextProvider } from './components/dbContext';
 import GetData from './components/dbContext/getData';
 import MainPage from './MainPage';
 
-
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap&subset=cyrillic');
   body {

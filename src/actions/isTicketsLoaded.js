@@ -1,18 +1,17 @@
 import React from 'react';
+import ErrorPage from '../components/support/Error';
 
 const isTicketsLoaded = (arr, iniq, Ticket) => {
   if (arr === 'ERROR') {
     return (
-      <div>
-        Ups Sorry if you refresh this page we will getting new tickets for you
-      </div>
+      <ErrorPage />
     );
   }
   return (
     arr.tickets.map((item, ind) => {
       const key = iniq();
       while (ind <= 5) {
-        return <Ticket key={key} infoArr={item} />
+        return <Ticket key={key} infoArr={item} />;
       } return null;
     })
   );

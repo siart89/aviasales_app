@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 export const FilterWrapper = styled.div`
@@ -62,4 +62,41 @@ export const CheckBox = styled.div.attrs((props) => ({
     top: -1px;
     left: 2px;
   }
+`;
+
+// CHECKBUTTON STYLES
+export const ButtonFilterWrapper = styled.div`
+  display:flex;
+  height:50px;
+`;
+
+export const Button = styled.span`
+  max-width: 251px;
+  width:100%;
+  height:100%;
+  color:#4A4A4A;
+  background-color:#fff;
+  border:1px solid #DFE5EC;
+/* Settings if button is active */
+  ${(props) => (props.check && css`
+    color:#fff;
+    background-color:#2196F3;
+    border:none;
+  `)}
+
+  ${(props) => (props.position === 'LEFT' ? css`
+    border-radius: 4px 0 0 4px;
+  ` : css`
+      border-radius: 0 4px 4px 0;
+  `
+  )}
+  font-weight:600;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  font-size:12px;
+  line-height:20px;
+  cursor:pointer;
 `;
