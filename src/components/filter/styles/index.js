@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 
-
 export const FilterWrapper = styled.div`
   max-width:232px;
   width:100%;
@@ -12,6 +11,10 @@ export const FilterWrapper = styled.div`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   color: #4A4A4A;
+
+  @media (max-width: 768px) {
+    max-width:100%;
+  }
 `;
 
 export const Title = styled.span`
@@ -21,6 +24,18 @@ export const Title = styled.span`
   letter-spacing: 0.5px;
   text-transform: uppercase;
   padding: 20px 0 20px 20px;
+  text-align:center;
+`;
+export const Form = styled.form`
+ 
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      align-items: center;
+      justify-content:space-between;
+      padding: 0 5px 5px 5px;
+  }
 `;
 
 export const Label = styled.label`
@@ -36,11 +51,28 @@ export const Label = styled.label`
   & input{
     display:none
   }
+  @media (max-width: 768px) {
+    font-size:13px;
+    &:hover{
+    background: none;
+  }
+  }
+  @media (max-width: 475px) {
+    font-size:10px;
+  }
 `;
 
 export const LabelText = styled.span`
   margin-left:50px;
   line-height: 20px;
+  
+  @media (max-width: 768px) {
+    margin-left:25px;
+    padding-left:5px;
+  }
+  @media (max-width: 475px) {
+    line-height:10px;
+  }
 `;
 
 export const CheckBox = styled.div.attrs((props) => ({
@@ -61,6 +93,13 @@ export const CheckBox = styled.div.attrs((props) => ({
     position: absolute;
     top: -1px;
     left: 2px;
+
+    @media (max-width: 475px) {
+    top:1px;
+  }
+  }
+  @media (max-width: 768px) {
+    left:5px;
   }
 `;
 
@@ -99,4 +138,8 @@ export const Button = styled.span`
   font-size:12px;
   line-height:20px;
   cursor:pointer;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;

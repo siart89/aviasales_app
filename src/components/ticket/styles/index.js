@@ -11,6 +11,9 @@ export const TicketWrapper = styled.div`
   background-color:#fff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const Cost = styled.span`

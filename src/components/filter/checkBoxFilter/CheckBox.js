@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   FilterWrapper,
   Title,
+  Form,
 } from '../styles';
 import RadioElement from './RadioElement';
 
@@ -28,7 +29,7 @@ const CheckBox = () => {
   return (
     <FilterWrapper>
       <Title>Количество пересадок</Title>
-      <form name="filter" onChange={handleOnChange}>
+      <Form name="filter" onChange={handleOnChange}>
         {transferFilters.map((filter) => (
           <RadioElement
             isCheked={filter.isChecked}
@@ -37,7 +38,7 @@ const CheckBox = () => {
             title={filter.title}
           />
         ))}
-      </form>
+      </Form>
     </FilterWrapper>
   );
 };
