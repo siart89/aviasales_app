@@ -4,6 +4,8 @@ import Ticket from './Ticket';
 import { DbContext } from '../dbContext';
 import ErrorPage from '../support/Error';
 import Loading from '../support/Loading';
+import sortData from '../../actions/sortData';
+import filterByCheapQuick from '../../actions/filterByCheapQuick';
 
 
 const TicketsList = () => {
@@ -13,28 +15,12 @@ const TicketsList = () => {
   // eslint-disable-next-line global-require
   const uniqid = require('uniqid');
 
-  const sortData = (arr, value) => {
-    const forSort = [];
-    if (+value.activeFilter !== 999) {
-      arr.tickets.forEach((elem) => {
-        if (elem.segments[0].stops.length === elem.segments[1].stops.length) {
-          elem.segments.forEach((segment) => {
-            if (+segment.stops.length === value.activeFilter) {
-              forSort.push(elem);
-            }
-          });
-        }
-      });
-      console.log(forSort);
-      setAfterSort(forSort);
-      return;
-    }
-    setAfterSort(arr.tickets);
-  };
-
   useEffect(() => {
-    sortData(data, filter);
-  }, [data, filter]);
+    // geting data after checkboxfilter
+    const filtered = sortData(data, filter.activeFilter);
+    // setting data after checkboxfilter and buttonFilter
+    setAfterSort(filterByCheapQuick(filtered, filter.comfort));
+  }, [data, filter.activeFilter, filter.comfort]);
 
   if (data === 'ERROR') {
     return (

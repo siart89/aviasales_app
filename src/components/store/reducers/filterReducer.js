@@ -1,5 +1,5 @@
 
-function filterReducer(state = { activeFilter: 999 }, action) {
+function filterReducer(state = { activeFilter: 999, comfort: null }, action) {
   switch (action.type) {
   case 'CHECKBOX_FILTER':
     return {
